@@ -1,0 +1,59 @@
+1 2 3
+4 5 6
+7 8 9
+  0
+  
+Length L, assume L>=1
+
+helper(i) = returns array of valid next moves
+knight's move
+helper(1) = [6, 8]
+helper(4) = [3, 9, 0]
+helper(3) = [4, 8]
+
+Return a count of possible sequences of length L, starting from any given number (e.g. all of them)
+
+L=1 => 1 2 3 4 5 6 ... 0 => 10
+L=2 => 16 18 27 29 ...   => 20
+L=3 => 161 167 160 181 183 2xx ...   => 46
+
+L=3 => 343 349 340 381 383
+
+public static void findSequences(int L, int i){
+    
+}
+
+loop through array of 10 
+    if current index == helper(current index) 
+        create a temp array of l.length and add current index;
+
+# Iterative
+queue = queue(1 -> 0)
+for i = 1; i < L; i++
+    tmpQueue = new queue
+    while (queue not empty)
+        tmpQueue.addAll(helper(queue.pop()))
+    queue = tmpQueue
+return queue.length    
+
+
+queue(1)
+tmpQueue(6 8)
+
+queue(8)
+tmpQueue()
+    queue.pop() = 6
+    helper(6) = [1 7 0]
+    tmpQueue.addAll([1 7 0])
+    
+    helper(8) = [1, 3]
+    tmpQ.addAll([1,3])
+queue = tmpQueue
+[1 7 0 1 3]
+map(1 -> 2, 7 -> 1, 0 -> 1, 3 -> 1)
+
+1
+6 8
+170 13
+-------------------
+161 167 160 181 183
