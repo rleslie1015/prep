@@ -5,20 +5,18 @@ import java.util.HashMap;
 import java.util.Arrays;
 
 public class Main {
-
+    String[] commonWord = new String[]{"the", "a", "or", "an", "but", "is", "are", "of", "on", "to", "was", "were", "in", "that", "i", "your", "his", "her", "their", "you", "me", "all"};
     public static String findMostRepeatedWord(String s) {
         HashMap<String, Integer> wordsCount = new HashMap<>();
+        s.trim();
         // Remove punctuation, make lower case and split into each word based on spaces
-        String[] words = s.replaceAll("[[\\n\\.\\?\\!\\,\\;\\:\\{\\}\\(\\)\\']]", "").toLowerCase().split(" +");
-        // String lowercases = s.toLowerCase().trim();
-        // String[] words = lowercases.split("[\\n\\t\\r\\,.;:!?()]");
+        String[] words = s.replaceAll("[[\\t\\r\\n\\.\\?\\!\\,\\;\\:\\{\\}\\(\\)\\']]", " ").toLowerCase().split(" +");
         System.out.println(Arrays.toString(words));
-        // loop through the words
         for (String word : words) {
             //  place in hashmap set key and word
-            // wordsCount.put(word, count);
+
             // if the word already exists in the hashmap
-            if (wordsCount.containsKey(word)) {
+            if (wordsCount.containsKey(word) && !isCommonWord(word)) {
                 wordsCount.put(word, wordsCount.get(word) + 1);
             }
                 // set the key + 1
@@ -37,10 +35,20 @@ public class Main {
                 max = currentValue;
             }
         }
-        System.out.println(mostRepeated);
+        System.out.println("The most repeated word is " + mostRepeated +". repeated " + max + " times.");
         return mostRepeated;
     }
-    
+      // Is the word a common word?
+      public static boolean isCommonWord(String item) {
+        String[] commonWords = {"the", "a", "or", "an", "it", "and", "but", "is", "are", "of", "on", "to", "was", "were", "in", "that", "i", "your", "his", "their", "her", "you", "me", "all"};
+        for (String s : commonWords) {
+            if (s.equals(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
         String testString = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
