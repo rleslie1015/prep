@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "words.Main",
+            "projectName": "prep_30749d3b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "findMostRepeatedWord.Main",
+            "projectName": "prep_30749d3b"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - MergeSort3",
             "request": "launch",
             "mainClass": "MergeSort3"
